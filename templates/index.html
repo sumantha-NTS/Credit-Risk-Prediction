@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Credit Risk</title>
+</head>
+<style>
+      input[type=submit] {
+          background-color: #0066A2;
+          border-color: #0066A2;
+          border-style: outset;
+          color: white;
+          border: 1px solid #eee;
+          border-radius: 10px;
+          padding: 12px 25px;
+          font: bold 15px arial, sans-serif;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+      input[type="number"] {
+          font-family:courier;
+          height: 20px;
+          width: 190px;
+          border-radius: 10px;
+          text-align: center;
+      }
+      input[type="number"]::placeholder {
+          font-weight: lighter;
+          text-align: center;
+      }
+      #grad1 {
+            background-image: radial-gradient( circle farthest-corner at 10% 20%,  rgba(62,133,238,1) 1.1%, rgba(227,137,240,1) 43.7%, rgba(243,193,124,1) 89.7% );
+      }
+      h1 {
+          color: white;
+          text-shadow: 1px 1px 2px red, 0 0 25px black;
+      }
+      select {
+           width: 200px;
+           text-align-last:center;
+           border-radius: 10px;
+           font-family:courier;
+           font-size:15px;
+           font-weight: bold;
+           height: 25px;
+      }
+    </style>
+<body style="text-align:center;">
+ <div id="grad1">
+	<h1><u>Credit Risk Prediction</u></h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}" method="post" id="Home">
+
+        <label for="age" style="font-size:130%;"><b>Age:</b></label><br>
+        <input type="number" name="age" placeholder="Enter the value" required="required" /><br><br>
+
+        <label for="income" style="font-size:130%;"><b>Annual Income in rupees:</b></label><br>
+        <input type="number" name="income" placeholder="Enter the value" required="required" /><br><br>
+
+        <label for="Home_Ownership" style="font-size:130%;"><b>Home Ownership:</b></label><br>
+        <select name="Home_Ownership" id="Home_Ownership" >
+            <option value="MORTGAGE">Mortgage</option>
+            <option value="OWN">Own</option>
+            <option value="RENT">Rent</option>
+            <option value="OTHER">Other</option>
+        </select><br><br>
+
+        <label for="Employment_length" style="font-size:130%;"><b>Employment length (in years):</b></label><br>
+        <input type="number" step="0.1" name="Employment_length" placeholder="Enter the value" required="required"/><br><br>
+
+        <label for="loan_intent" style="font-size:130%;"><b>Loan Intention:</b></label><br>
+        <select name="loan_intent" id="loan_intent" >
+            <option value="DEBTCONSOLIDATION">Debt Consolidation</option>
+            <option value="EDUCATION">Education</option>
+            <option value="HOMEIMPROVEMENT">Home Improvement</option>
+            <option value="MEDICAL">Medical</option>
+            <option value="PERSONAL">Personal</option>
+            <option value="VENTURE">Venture</option>
+        </select><br><br>
+
+        <label for="loan_grade" style="font-size:130%;"><b>Loan Grade:</b></label><br>
+        <select name="loan_grade" id="loan_grade" >
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D">D</option>
+            <option value="E">E</option>
+            <option value="F">F</option>
+            <option value="G">G</option>
+        </select><br><br>
+
+        <label for="loan_amount" style="font-size:130%;"><b>Loan Amount in rupees:</b></label><br>
+        <input type="number" name="loan_amount" placeholder="Enter the value" required="required" /><br><br>
+
+        <label for="loan_int_rate" style="font-size:130%;"><b>Loan Interest Rate in %:</b></label><br>
+        <input type="number" step="0.01" name="loan_int_rate" placeholder="Enter the value" required="required" /><br><br>
+
+        <input type="submit" >
+    </form>
+ </div>
+</body>
+</html>
